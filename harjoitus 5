@@ -1,0 +1,41 @@
+int main (void){
+
+        /* alustetaan muutujat asiasnumerolle, ajalle, summalle ja aikayht; */
+        int asiakasnro = 1;  
+        double aika, aikayht, summa;   
+        int i;
+        
+        double tuntiTaulukko[3]; /* alustetaan taulukko */
+
+            printf("\nAnna kolmen asiakkaan tunnit\n");
+            i=0; /* indeksimuuttuja */
+
+
+            while(i < 3){
+                printf("Anna tunnit: ", (i + 1));
+                scanf("%lf", &tuntiTaulukko[i]); /* syotetaan tiedot taulukkoon */
+
+                maksu(tuntiTaulukko[i]); /* taulukon tuntien mukaan haetaan veloitus funktiosta */
+                summa = summa + maksu(tuntiTaulukko[i]);
+                aikayht = aikayht + tuntiTaulukko[i];
+
+                i++;
+
+            }
+
+          printf("Asiakas  tunnit veloitus");
+
+         i=0;
+          while(i < 3){
+
+            printf("\n %d        %2.2lf        %2.2lf", i+1 , tuntiTaulukko[i], maksu(tuntiTaulukko[i]));
+            i++;
+
+          }
+
+    printf("\n\nYHTEENSA:    %2.2lf        %2.2lf", aikayht, summa);
+    printf("\n\n");
+
+    return (0);
+
+}
